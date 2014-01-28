@@ -1,0 +1,36 @@
+<div>
+    <input type="text" ng-model="newMovie.name" placeholder="A movie Name">
+    <input type="number" ng-model="newMovie.releaseYear" placeholder="Release Year">
+    <input type="text" ng-model="newMovie.averageRating" placeholder="Average Rating">
+    <button ng-hide = "newMovie._id.$oid" ng-click="addNewMovie(newMovie)">Add Item</button>
+    <button ng-show = "newMovie._id.$oid" ng-click="updateMovie(newMovie)">Update Item</button>
+    <br>
+    <input ng-model="search" placeholder="Search">
+    <hr>
+    <fbimage fbid="joshi.neeraj"></fbimage>
+    <hr>
+    <div class="datagrid">
+        <table>
+            <thead>
+                <tr>
+                    <th>Movie Name</th>
+                    <th>Release year</th>
+                    <th>Average Rating</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-class="{alt: $even, odd: $odd}" ng-repeat="movie in movies | filter:search track by $index">
+                    <td>{{movie.name}}</td>
+                    <td>{{movie.releaseYear}}</td>
+                    <td>{{movie.averageRating}}</edit-in-place></td>
+                    <td><a href="#/movie/edit/{{movie._id.$oid}}">Edit</a></td>
+                    <td><a href="#/movie/delete/{{movie._id.$oid}}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    </div>
+</div>
