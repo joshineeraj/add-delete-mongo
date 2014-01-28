@@ -26,13 +26,6 @@ angular.module('myApp.services', []).
     var _removeMovie = function(movie){
     	var originalMovie =  Restangular.one('movies', movie.id).get();
     	return originalMovie;
-    	/*
-    	angular.forEach(_movies, function(value, key){
-    		if(value.id == movie.id){
-	  		   _movies.splice(idx, 1);
-  		  	}
-    	});
-    	*/
     }
 
     return{

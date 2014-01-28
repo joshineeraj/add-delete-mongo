@@ -25,13 +25,13 @@ config(['$routeProvider', function($routeProvider) {
   RestangularProvider.setDefaultRequestParams({ apiKey: '83nxC8BfkaXHn-B1iM3Dc-t-MpG_Zi85' });
   RestangularProvider.setRestangularFields({ id: '_id.$oid' });
   
-  /*RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
+  RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
       
 	  if (operation === 'put') {
         elem._id = undefined;
         return elem;
       }
       return elem;
-    });*/
+    });
   
 });

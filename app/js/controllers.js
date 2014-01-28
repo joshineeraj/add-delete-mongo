@@ -31,10 +31,10 @@ angular.module('myApp.controllers', []).
                 });
     }
     $scope.getMovies();
-    $scope.addNewMovie = function(newMovie){
-        var movie = {name: newMovie.name,
-        			releaseYear: newMovie.releaseYear,
-        			averageRating:newMovie.averageRating
+    $scope.addNewMovie = function(movie){
+        var movie = {name: movie.name,
+        			releaseYear: movie.releaseYear,
+        			averageRating:movie.averageRating
         			};
         moviesService.addNewMovie(movie).then(function(movie) {
         	$scope.getMovies();
@@ -48,13 +48,10 @@ angular.module('myApp.controllers', []).
 	  var movie = {id: movieId};
 	  moviesService.editMovie(movie).then(function(movie) {
 		  var original = movie;
-		  $scope.newMovie = original;
+		  $scope.movie = original;
       });
-	  $scope.updateMovie = function(){
-		  console.log($scope.newMovie);
-		  var existing_id = $scope.newMovie._id;
-		  delete $scope.newMovie._id;
-		  $scope.newMovie.put().then(function() {
+	  $scope.updateMovie = function(movie){
+		  movie.put().then(function() {
 			  console.log("success put");
 			  $location.path('/movies');
 		  });
